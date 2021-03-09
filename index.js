@@ -20,3 +20,16 @@ class Employee {
         return "Employee"
     }
 }
+
+class Manager extends Employee {
+    constructor(name, id, email, officeNum) {
+        super(name, id, email);
+        this.officeNum = officeNum
+    }
+    getOfficeNum() {
+        console.log(`Office number: ${this.getOfficeNum}`)
+    }
+    getRole() {
+        return "Manager"
+    }
+}
