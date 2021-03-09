@@ -24,12 +24,38 @@ class Employee {
 class Manager extends Employee {
     constructor(name, id, email, officeNum) {
         super(name, id, email);
-        this.officeNum = officeNum
+        this.officeNum = officeNum;
     }
     getOfficeNum() {
-        console.log(`Office number: ${this.getOfficeNum}`)
+        console.log(`Office number: ${this.officeNum}`)
     }
     getRole() {
         return "Manager"
+    }
+}
+
+class Engineer extends Employee {
+    constructor(name, id, email, github) {
+        super(name, id, email, github);
+        this.github = github;
+    }
+    getGithub() {
+        console.log(`Github username: ${this.github}`)
+    }
+    getRole() {
+        return "Engineer"
+    }
+}
+
+class Intern extends Employee {
+    constructor(name, id, email, school) {
+        super(name, id, email, school);
+        this.school = school;
+    }
+    getSchoolb() {
+        console.log(`School: ${this.school}`)
+    }
+    getRole() {
+        return "Intern"
     }
 }
