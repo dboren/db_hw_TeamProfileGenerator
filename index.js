@@ -16,7 +16,7 @@ class Employee {
     getEmail() {
         console.log(`E-mail address: ${this.email}`);
     }
-    // getRole() {
-
-    // }
+    getRole() {
+        return "Employee"
+    }
 }
