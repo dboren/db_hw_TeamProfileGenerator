@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 
+const Manager = require('./lib/manager');
+
 const mgPrompts = [
     {
         type: 'input',
@@ -76,8 +78,15 @@ const intPrompts = [
     }
 ];
 
+// const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
+
 function init() {
     inquirer.prompt(mgPrompts)
+        .then((data) => {
+            const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
+            console.log(teamMgr);
+        })
+
 }
 
 init();
