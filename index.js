@@ -81,9 +81,9 @@ const intPrompts = [
 
 // const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
 
-// function addNew() {
-//     inquirer.prompt(newMemPrompts);
-// }
+function addNew() {
+    inquirer.prompt(newMemPrompts);
+}
 
 function init() {
     inquirer.prompt(mgPrompts)
