@@ -81,17 +81,6 @@ const intPrompts = [
 
 // const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
 
-function addNew() {
-    inquirer.prompt(newMemPrompts);
-    if (answers = 'engineer') {
-        console.log('employee type: ' + answers);
-        addEngineer();
-    }
-    else if (answers = 'intern') {
-        console.log('employee type: ' + answers);
-        addIntern();
-    }
-}
 
 function addEngineer() {
     inquirer.prompt(engPrompts);
@@ -99,6 +88,33 @@ function addEngineer() {
 
 function addIntern() {
     inquirer.prompt(intPrompts);
+}
+
+function addNew() {
+    inquirer.prompt(newMemPrompts)
+        .then(data => {
+            switch (data.choices) {
+                case "engineer":
+                    console.log(data.choices);
+                    addEngineer();
+                    break;
+                case "intern":
+                    console.log(data.choices);
+                    addIntern();
+                    break;
+                default:
+                    break;
+                
+            }
+        })
+    // if (data = 'engineer') {
+    //     console.log('employee type: ' + answers);
+    //     addEngineer();
+    // }
+    // else if (data = 'intern') {
+    //     console.log('employee type: ' + answers);
+    //     addIntern();
+    // }
 }
 
 function init() {
