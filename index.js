@@ -11,7 +11,7 @@ const mgPrompts = [
     },
     {
         type: 'input',
-        name: 'ID',
+        name: 'id',
         message: 'Enter the ID number of the team manager:'
     },
     {
@@ -88,10 +88,13 @@ function addNew() {
 function init() {
     inquirer.prompt(mgPrompts)
         .then((data) => {
-            const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
+            const teamMgr = new Manager(data.name, data.id, data.email, data.ofcNum);
             console.log(teamMgr);
+            return teamMgr;
         })
-        addNew();
+        .then(() => {
+            addNew();
+        })
 
 }
 
