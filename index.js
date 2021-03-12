@@ -83,6 +83,22 @@ const intPrompts = [
 
 function addNew() {
     inquirer.prompt(newMemPrompts);
+    if (answers = 'engineer') {
+        console.log('employee type: ' + answers);
+        addEngineer();
+    }
+    else if (answers = 'intern') {
+        console.log('employee type: ' + answers);
+        addIntern();
+    }
+}
+
+function addEngineer() {
+    inquirer.prompt(engPrompts);
+}
+
+function addIntern() {
+    inquirer.prompt(intPrompts);
 }
 
 function init() {
@@ -94,6 +110,7 @@ function init() {
         })
         .then(() => {
             addNew();
+            
         })
 
 }
