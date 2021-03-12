@@ -28,7 +28,7 @@ const mgPrompts = [
 
 const newMemPrompts = {
     type: 'list',
-    choices: ['engineer, intern'],
+    choices: ['engineer', 'intern'],
     name: 'role',
     message: 'Is this employee an engineer or an intern?:'
 }
@@ -91,7 +91,7 @@ function init() {
             const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
             console.log(teamMgr);
         })
-        // addNew();
+        addNew();
 
 }
 
