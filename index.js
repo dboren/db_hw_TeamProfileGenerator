@@ -90,7 +90,6 @@ const intPrompts = [
 function addEngineer() {
     inquirer.prompt(engPrompts)
     .then((data) => {
-        //Might need to make this its own promise function
         const newEng = new Engineer(data.name, data.id, data.email, data.gitHub);
         console.log(newEng);
         engineers.push(newEng);
@@ -102,9 +101,11 @@ function addEngineer() {
 function addIntern() {
     inquirer.prompt(intPrompts)
     .then((data) => {
-        //Might need to make this its own promise function
         const newInt = new Intern(data.name, data.id, data.email, data.school);
         console.log(newInt);
+        interns.push(newInt);
+        console.info("Int team: " + interns.length);
+    addNew();
     });
 };
 
