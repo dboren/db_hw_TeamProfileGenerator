@@ -43,7 +43,7 @@ const engPrompts = [
     },
     {
         type: 'input',
-        name: 'ID',
+        name: 'id',
         message: 'Enter the ID number of this engineer:'
     },
     {
@@ -66,7 +66,7 @@ const intPrompts = [
     },
     {
         type: 'input',
-        name: 'ID',
+        name: 'id',
         message: 'Enter the ID number of this intern:'
     },
     {
