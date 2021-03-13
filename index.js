@@ -2,6 +2,8 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 
 const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
 
 const mgPrompts = [
     {
@@ -83,12 +85,23 @@ const intPrompts = [
 
 
 function addEngineer() {
-    inquirer.prompt(engPrompts);
+    inquirer.prompt(engPrompts)
+    .then((data) => {
+        //Might need to make this its own promise function
+        const newEng = new Engineer(data.name, data.id, data.email, data.gitHub);
+        console.log(newEng);
+
+    });
 }
 
 function addIntern() {
-    inquirer.prompt(intPrompts);
-}
+    inquirer.prompt(intPrompts)
+    .then((data) => {
+        //Might need to make this its own promise function
+        const newInt = new Intern(data.name, data.id, data.email, data.school);
+        console.log(newInt);
+    });
+};
 
 function addNew() {
     inquirer.prompt(newMemPrompts)
