@@ -5,6 +5,9 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
+const engineers = [];
+const interns = [];
+
 const mgPrompts = [
     {
         type: 'input',
@@ -90,7 +93,7 @@ function addEngineer() {
         //Might need to make this its own promise function
         const newEng = new Engineer(data.name, data.id, data.email, data.gitHub);
         console.log(newEng);
-
+    addNew();
     });
 }
 
