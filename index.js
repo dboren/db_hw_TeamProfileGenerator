@@ -60,7 +60,7 @@ const intPrompts = [
     {
         type: 'input',
         name: 'name',
-        message: 'Enter the name of this itern:'
+        message: 'Enter the name of this intern:'
     },
     {
         type: 'input',
@@ -93,16 +93,23 @@ function addIntern() {
 function addNew() {
     inquirer.prompt(newMemPrompts)
         .then(data => {
-            switch (data.choices) {
-                case "engineer":
-                    console.log(data.choices);
+            console.log("data: " + data);
+            console.log("object keys: " + Object.keys(data));
+            console.log("type of data: " + typeof(data));
+            let selection = data.role;
+            console.log("selection:" + selection);
+            console.log("newMemPrompts:" + newMemPrompts);
+            switch (selection) {
+                case 'engineer':
+                    console.log("Role selected: " + selection);
                     addEngineer();
                     break;
-                case "intern":
-                    console.log(data.choices);
+                case 'intern':
+                    console.log("Role selected: " + selection);
                     addIntern();
                     break;
                 default:
+                    console.log("it's defaulting for some reason");
                     break;
                 
             }
@@ -120,6 +127,7 @@ function addNew() {
 function init() {
     inquirer.prompt(mgPrompts)
         .then((data) => {
+            //Might need to make this its own promise function
             const teamMgr = new Manager(data.name, data.id, data.email, data.ofcNum);
             console.log(teamMgr);
             return teamMgr;
