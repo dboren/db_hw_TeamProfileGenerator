@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
+const path = require('path')
+const generateChart = require('./src/generatechart');
 
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
