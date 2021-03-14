@@ -1,4 +1,4 @@
-function formatter(data) {
+function generateChart(data) {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -26,4 +26,4 @@ function formatter(data) {
     `
 }
 
-module.exports = formatter;
+module.exports = generateChart;

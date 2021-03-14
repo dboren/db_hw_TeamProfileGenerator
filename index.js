@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 const path = require('path')
-const generateChart = require('./src/generatechart');
+const formatter = require('./src/formatter');
 
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
@@ -88,6 +88,11 @@ const intPrompts = [
 
 // const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
 
+function generateChart(fileName, data) {
+    console.log("generateChart");
+    console.log(data);
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data)
+};
 
 function addEngineer() {
     inquirer.prompt(engPrompts)
@@ -98,7 +103,7 @@ function addEngineer() {
         console.info("Eng team: " + engineers.length);
     addNew();
     });
-}
+};
 
 function addIntern() {
     inquirer.prompt(intPrompts)
@@ -131,7 +136,7 @@ function addNew() {
                     break;
                 case 'done - exit and generate':
                     console.log("Exiting menu");
-                    // generateChart();
+                    generateChart("myteam.html", formatter({...data}))
                 default:
                     console.log("it's defaulting for some reason");
                     break;
