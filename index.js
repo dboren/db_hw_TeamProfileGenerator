@@ -33,7 +33,7 @@ const mgPrompts = [
 
 const newMemPrompts = {
     type: 'list',
-    choices: ['engineer', 'intern'],
+    choices: ['engineer', 'intern', 'done - exit and generate'],
     name: 'role',
     message: 'Is this employee an engineer or an intern?:'
 }
@@ -127,6 +127,9 @@ function addNew() {
                     console.log("Role selected: " + selection);
                     addIntern();
                     break;
+                case 'done - exit and generate':
+                    console.log("Exiting menu");
+                    // generateChart();
                 default:
                     console.log("it's defaulting for some reason");
                     break;
