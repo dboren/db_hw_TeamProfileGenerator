@@ -1,4 +1,4 @@
-function formatter(data) {
+function generateChart(data) {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -13,17 +13,11 @@ function formatter(data) {
             <h1 class="bg-primary text-center">My Team</h1>
         </header>
         <main class="container">
-            <div class=card>
-                <h3>${data.name}</h3>
-                <h4>Manager</h4>
-                <p>ID: ${data.id}</id>
-                <p>email: ${data.email}</p>
-                <p>Office number: ${data.officeNum}</p>
-            </div>
+
         </main>
     </body>
     </html>
     `
 }
 
-module.exports = formatter;
+module.exports = generateChart;

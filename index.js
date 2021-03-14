@@ -1,7 +1,9 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 const path = require('path')
-const formatter = require('./src/formatter');
+
+const generateChart = require('./src/generatechart');
+const generateMgr = require('./src/mgrtemp');
 
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
@@ -89,11 +91,16 @@ const intPrompts = [
 
 // const teamMgr = new Manager(data.name, data.ID, data.email, data.ofcNum);
 
-function generateChart(fileName, data) {
-    console.log("generateChart");
+function printHTML(fileName, data) {
+    console.log("printing HTML");
     console.log(data);
     return fs.writeFileSync(path.join(process.cwd(), fileName), data)
 };
+
+// function printMgr(data) {
+//     const mgrEl = generateMgr(data);
+//     console.log(mgrEl);
+// };
 
 function addEngineer() {
     inquirer.prompt(engPrompts)
@@ -138,7 +145,7 @@ function addNew() {
                 case 'done - exit and generate':
                     console.log("Exiting menu");
                     console.log("data at write: " + Object.keys(data));
-                    generateChart("myteam.html", formatter({...data}));
+                    printHTML("myteam.html", generateChart({...data}));
                     break;
                 default:
                     console.log("it's defaulting for some reason");
@@ -162,6 +169,8 @@ function init() {
             //Might need to make this its own promise function
             const teamMgr = new Manager(data.name, data.id, data.email, data.ofcNum);
             console.log(teamMgr);
+            // const mgrEl = generateMgr(data);
+            // console.log(mgrEL);
             return teamMgr;
         })
         .then(() => {
