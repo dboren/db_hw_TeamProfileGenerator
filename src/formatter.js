@@ -13,7 +13,7 @@ function generateChart(data) {
             <h1 class="bg-primary text-center">My Team</h1>
         </header>
         <main class="container">
-            <div class=card>
+            <div class="card border">
                 <h3>${data.name}</h3>
                 <h4>Manager</h4>
                 <p>ID: ${data.id}</id>

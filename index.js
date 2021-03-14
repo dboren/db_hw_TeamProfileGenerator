@@ -7,6 +7,7 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
+// let teamMgr;
 const engineers = [];
 const interns = [];
 
@@ -136,8 +137,8 @@ function addNew() {
                     break;
                 case 'done - exit and generate':
                     console.log("Exiting menu");
-                    console.log("data: " + data)
-                    generateChart("myteam.html", formatter({...data}))
+                    console.log("data at write: " + Object.keys(data));
+                    generateChart("myteam.html", formatter({...data}));
                     break;
                 default:
                     console.log("it's defaulting for some reason");
@@ -161,7 +162,7 @@ function init() {
             //Might need to make this its own promise function
             const teamMgr = new Manager(data.name, data.id, data.email, data.ofcNum);
             console.log(teamMgr);
-            // return teamMgr;
+            return teamMgr;
         })
         .then(() => {
             addNew();
