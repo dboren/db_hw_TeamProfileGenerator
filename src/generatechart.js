@@ -1,4 +1,6 @@
-function generateChart(data) {
+// const generateMgr = require('./generatemgr');
+
+function generateChart() {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -11,7 +13,8 @@ function generateChart(data) {
     <body>
         <header>
             <h1 class="bg-primary text-center">My Team</h1>
-        </header>
+
+    </header>
         <main class="container">
 
         </main>

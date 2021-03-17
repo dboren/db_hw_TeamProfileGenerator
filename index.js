@@ -3,15 +3,17 @@ const fs = require('fs');
 const path = require('path')
 
 const generateChart = require('./src/generatechart');
-const generateMgr = require('./src/mgrtemp');
+const generateMgr = require('./src/generatemgr');
 
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
 // let teamMgr;
-const engineers = [];
-const interns = [];
+
+const team = [];
+// const engineers = [];
+// const interns = [];
 
 const mgPrompts = [
     {
@@ -171,7 +173,8 @@ function init() {
             console.log(teamMgr);
             // const mgrEl = generateMgr(data);
             // console.log(mgrEL);
-            return teamMgr;
+            team.push(teamMgr);
+            console.log("Current team: " + team);
         })
         .then(() => {
             addNew();
