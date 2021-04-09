@@ -15,6 +15,11 @@ const team = [];
 // const engineers = [];
 // const interns = [];
 
+// const OUTPUT_DIR = path.resolve(__dirname, "output");
+// const outputPath = path.join(OUTPUT_DIR, "myteam.html");
+
+// const render = require('./src/generatechart');
+
 const mgPrompts = [
     {
         type: 'input',
@@ -97,6 +102,7 @@ function printHTML(fileName, data) {
     console.log("printing HTML");
     console.log(data);
     return fs.writeFileSync(path.join(process.cwd(), fileName), data)
+                //outputPath
 };
 
 // function printMgr(data) {
@@ -109,8 +115,8 @@ function addEngineer() {
     .then((data) => {
         const newEng = new Engineer(data.name, data.id, data.email, data.gitHub);
         console.log(newEng);
-        engineers.push(newEng);
-        console.info("Eng team: " + engineers.length);
+        team.push(newEng);
+        console.log("Current Team: ", team);
     addNew();
     });
 };
@@ -120,8 +126,8 @@ function addIntern() {
     .then((data) => {
         const newInt = new Intern(data.name, data.id, data.email, data.school);
         console.log(newInt);
-        interns.push(newInt);
-        console.info("Int team: " + interns.length);
+        team.push(newInt);
+        console.info("Current Team: ", team);
     addNew();
     });
 };
@@ -174,7 +180,7 @@ function init() {
             // const mgrEl = generateMgr(data);
             // console.log(mgrEL);
             team.push(teamMgr);
-            console.log("Current team: " + team);
+            console.log("Current team: ", team);
         })
         .then(() => {
             addNew();
